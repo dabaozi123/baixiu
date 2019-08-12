@@ -33,20 +33,23 @@
 
     <script>
         $(function() {
+            //登录按钮点击时
             $('#loginbtn').click(function() {
+                    //获取邮箱
                     var email = $('#email').val()
+                        //获取密码
                     var password = $('#password').val()
-
+                        //判断邮箱数值是否为空
                     if (email.trim().length == 0) {
                         alert('亲输入邮箱')
                         return
                     }
-
+                    //判断密码数值是否为空
                     if (password.trim().length == 0) {
                         alert('亲输入邮箱')
                         return
                     }
-
+                    //向客户端发起请求
                     $.ajax({
                         type: 'post',
                         url: '/login',
@@ -54,6 +57,7 @@
                             email: email,
                             password: password
                         },
+                        //成功调用的函数
                         success: function(response) {
                             location.href = 'index.html'
 
